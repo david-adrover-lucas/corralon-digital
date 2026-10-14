@@ -1,59 +1,124 @@
+package com.corralon_digital.corralon_digital.models;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+@Entity 
+@Table (name = "empresa")
 public class Empresa {
-    @Column (name = "id_empresa")
-    @GeneratedValue (strategy = jakarta.persistence.GenerationType.IDENTITY)
-    private Long id_empresa;
-    @Column (name = "nombre")
-    private String nombre;
-    @Column (name = "direccion")
-    private String direccion;
-    @Column (name = "telefono")
-    private String telefono;
-    @Column (name = "email")
-    private String email;
+@Id 
+@Column (name = "id_empresa")
+@GeneratedValue (strategy = jakarta.persistence.GenerationType.IDENTITY)
+private Long id_empresa;
+@Column (name = "id_usuario") 
+private Usuario id_usuario;
+@Column (name = "razon_social")
+private String razon_social;
+@Column (name = "cuit")
+private String cuit;
 
-    public Empresa() {
-    }
-
-    public Empresa(Long id_empresa, String nombre, String direccion, String telefono, String email) {
-        this.id_empresa = id_empresa;
-        this.nombre = nombre;
-        this.direccion = direccion;
-        this.telefono = telefono;
-        this.email = email;
-    }
-
-    public Long getId_empresa() {
-        return id_empresa;
-    }
-
-    public void setId_empresa(Long id_empresa) {
-        this.id_empresa = id_empresa;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    public String getEmail() {
-        return email;
-    }
+@Enumerated(EnumType.STRING)
+@Column (name = "condicion_iva")
+private CondicionIVA condicion_iva;
+@Column (name = "direccion_fiscal")
+private String direccion_fiscal;
+@Column (name = "direccion_comercial")
+private String direccion_comercial;
+@Column (name = "representante_legal")
+private String representante_legal;
+@Enumerated(EnumType.STRING)
+@Column (name = "tipo_empresa")
+private TipoEmpresa tipo_empresa;
+@Enumerated(EnumType.STRING)
+@Column (name = "estado_aprobacion")
+private EstadoAprobacion estado_aprobacion;
+@Column (name = "id_admin_aprobador")
+private Long id_admin_aprobador;
+public Empresa() {
+}
+public Empresa(Long id_empresa, Usuario id_usuario, String razon_social, String cuit, CondicionIVA condicion_iva,
+        String direccion_fiscal, String direccion_comercial, String representante_legal, TipoEmpresa tipo_empresa,
+        EstadoAprobacion estado_aprobacion, Long id_admin_aprobador) {
+    this.id_empresa = id_empresa;
+    this.id_usuario = id_usuario;
+    this.razon_social = razon_social;
+    this.cuit = cuit;
+    this.condicion_iva = condicion_iva;
+    this.direccion_fiscal = direccion_fiscal;
+    this.direccion_comercial = direccion_comercial;
+    this.representante_legal = representante_legal;
+    this.tipo_empresa = tipo_empresa;
+    this.estado_aprobacion = estado_aprobacion;
+    this.id_admin_aprobador = id_admin_aprobador;
+}
+public Long getId_empresa() {
+    return id_empresa;
+}
+public void setId_empresa(Long id_empresa) {
+    this.id_empresa = id_empresa;
+}
+public Usuario getId_usuario() {
+    return id_usuario;
+}
+public void setId_usuario(Usuario id_usuario) {
+    this.id_usuario = id_usuario;
+}
+public String getRazon_social() {
+    return razon_social;
+}
+public void setRazon_social(String razon_social) {
+    this.razon_social = razon_social;
+}
+public String getCuit() {
+    return cuit;
+}
+public void setCuit(String cuit) {
+    this.cuit = cuit;
+}
+public CondicionIVA getCondicion_iva() {
+    return condicion_iva;
+}
+public void setCondicion_iva(CondicionIVA condicion_iva) {
+    this.condicion_iva = condicion_iva;
+}
+public String getDireccion_fiscal() {
+    return direccion_fiscal;
+}
+public void setDireccion_fiscal(String direccion_fiscal) {
+    this.direccion_fiscal = direccion_fiscal;
+}
+public String getDireccion_comercial() {
+    return direccion_comercial;
+}
+public void setDireccion_comercial(String direccion_comercial) {
+    this.direccion_comercial = direccion_comercial;
+}
+public String getRepresentante_legal() {
+    return representante_legal;
+}
+public void setRepresentante_legal(String representante_legal) {
+    this.representante_legal = representante_legal;
+}
+public TipoEmpresa getTipo_empresa() {
+    return tipo_empresa;
+}
+public void setTipo_empresa(TipoEmpresa tipo_empresa) {
+    this.tipo_empresa = tipo_empresa;
+}
+public EstadoAprobacion getEstado_aprobacion() {
+    return estado_aprobacion;
+}
+public void setEstado_aprobacion(EstadoAprobacion estado_aprobacion) {
+    this.estado_aprobacion = estado_aprobacion;
+}
+public Long getId_admin_aprobador() {
+    return id_admin_aprobador;
+}
+public void setId_admin_aprobador(Long id_admin_aprobador) {
+    this.id_admin_aprobador = id_admin_aprobador;
+}
+}
