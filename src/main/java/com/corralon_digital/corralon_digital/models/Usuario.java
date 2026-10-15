@@ -3,24 +3,32 @@ package com.corralon_digital.corralon_digital.models;
 import jakarta.annotation.Generated;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity 
 @Table (name = "usuario")
 public class Usuario{
+    @Id 
     @Column (name = "id_usuario") 
     @Generated (value = "jakarta.persistence.GenerationType.IDENTITY")
     private Long id_usuario;
+    
     @Column (name = "nombre_completo")
     private String nombre_completo;
+    
     @Column (name = "email")
     private String email;
+    
     @Column (name = "password_hash")
     private String password_hash;
+    
     @Column (name = "dni")
     private String dni;
+    
     @Column (name = "direccion")
     private String direccion;
+    
     @Column (name = "telefono")
     private String telefono;
     

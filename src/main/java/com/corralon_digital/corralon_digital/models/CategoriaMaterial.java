@@ -3,11 +3,13 @@ package com.corralon_digital.corralon_digital.models;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity 
 @Table (name = "categoria_material")
 public class CategoriaMaterial {
+@Id    
 @Column (name = "id_categoria")
 @GeneratedValue (strategy = jakarta.persistence.GenerationType.IDENTITY)
 private Long id_categoria;

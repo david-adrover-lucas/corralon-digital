@@ -10,7 +10,7 @@ import jakarta.persistence.Table;
 @Entity 
 @Table (name = "empresa")
 public class Empresa {
-@Id 
+@Id
 @Column (name = "id_empresa")
 @GeneratedValue (strategy = jakarta.persistence.GenerationType.IDENTITY)
 private Long id_empresa;

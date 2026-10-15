@@ -4,11 +4,13 @@ import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity 
 @Table (name = " oferta_proveedor")
 public class OfertaProveedor {
+@Id    
 @Column (name = "id_oferta")
 private Long id_oferta;
 @Column (name = "id_empresa_proveedor")
