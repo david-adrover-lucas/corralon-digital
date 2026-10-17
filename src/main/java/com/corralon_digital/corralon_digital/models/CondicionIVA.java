@@ -1,6 +1,8 @@
 package com.corralon_digital.corralon_digital.models;
 
-public class CondicionIVA {
-
-    
+public enum CondicionIVA {
+    RESPONSABLE_INSCRIPTO,
+    MONOTRIBUTO,
+    EXENTO,
+    CONSUMIDOR_FINAL
 }

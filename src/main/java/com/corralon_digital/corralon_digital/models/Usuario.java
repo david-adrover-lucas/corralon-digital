@@ -1,49 +1,66 @@
 package com.corralon_digital.corralon_digital.models;
 
-import jakarta.annotation.Generated;
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
-@Entity 
-@Table (name = "usuario")
-public class Usuario{
-    @Id 
-    @Column (name = "id_usuario") 
-    @Generated (value = "jakarta.persistence.GenerationType.IDENTITY")
+@Entity
+@Table(name = "usuario")
+public class Usuario {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_usuario")
     private Long id_usuario;
-    
-    @Column (name = "nombre_completo")
+
+    @Column(name = "nombre_completo")
     private String nombre_completo;
-    
-    @Column (name = "email")
+
+    @Column(name = "email")
     private String email;
-    
-    @Column (name = "password_hash")
+
+    @Column(name = "password_hash")
     private String password_hash;
-    
-    @Column (name = "dni")
+
+    @Column(name = "dni")
     private String dni;
-    
-    @Column (name = "direccion")
+
+    @Column(name = "direccion")
     private String direccion;
-    
-    @Column (name = "telefono")
+
+    @Column(name = "telefono")
     private String telefono;
-    
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_rol")
+    private Rol rol;
+
+    @Column(name = "estado")
+    private String estado;
+
+    @Column(name = "fecha_registro")
+    private LocalDateTime fecha_registro;
 
     public Usuario() {
     }
 
-    public Usuario(Long id_usuario, String nombre_completo, String email, String password_hash, String dni, String direccion, String telefono) {
-        this.id_usuario = id_usuario;
+public Usuario(String nombre_completo, String email, String password_hash, String dni, String direccion, String telefono, Rol rol, String estado, LocalDateTime fecha_registro) {
         this.nombre_completo = nombre_completo;
         this.email = email;
         this.password_hash = password_hash;
         this.dni = dni;
         this.direccion = direccion;
         this.telefono = telefono;
+        this.rol = rol;
+        this.estado = estado;
+        this.fecha_registro = fecha_registro;
     }
 
     public Long getId_usuario() {
@@ -100,6 +117,30 @@ public class Usuario{
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+
+    public Rol getRol() {
+        return rol;
+    }
+
+    public void setRol(Rol rol) {
+        this.rol = rol;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public LocalDateTime getFecha_registro() {
+        return fecha_registro;
+    }
+
+    public void setFecha_registro(LocalDateTime fecha_registro) {
+        this.fecha_registro = fecha_registro;
     }
 
 }
