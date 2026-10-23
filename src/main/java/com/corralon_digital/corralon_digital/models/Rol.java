@@ -19,6 +19,7 @@ public class Rol {
     @Column(name = "nombre")
     private String nombre;
 
+
     public Rol() {
     }
 
