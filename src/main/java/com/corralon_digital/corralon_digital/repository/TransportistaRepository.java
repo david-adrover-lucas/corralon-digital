@@ -6,6 +6,7 @@ import java.util.List;
 
 @Repository 
 public interface TransportistaRepository extends JpaRepository<Transportista, Long> {
+    
     List<Transportista> findByNombre(String nombre);
     List<Transportista> findByTipo(String nombre);
     List<Transportista> findByCuit(String cuit);
